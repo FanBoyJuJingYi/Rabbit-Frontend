@@ -99,7 +99,7 @@ const FilterSidebar = () => {
     const newPrice = e.target.value;
     setPriceRange([0, newPrice]);
     const newFilters = { ...filters, minPrice: 0, maxPrice: newPrice };
-    setFilters(filters);
+    setFilters(newFilters);
     updateURLParams(newFilters);
   };
 
@@ -228,7 +228,7 @@ const FilterSidebar = () => {
           name="priceRange"
           min={0}
           max={100}
-          value={priceRange[1]}
+          value={priceRange[1] || 100}
           onChange={handlePriceChange}
           className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
         />
